@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+#it will remove index.php extension and whatever comes after ? put it on a variable $1
+RewriteRule ^(.*)$ index.php?$1 [L,QSA] 
