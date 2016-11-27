@@ -1,0 +1,8 @@
+[28-Nov-2016 00:03:09 Europe/Berlin] 
+Uncaught Exception: Exception
+Message: Method addneAction not found in controller App\Controllers\Posts
+Stack trace: #0 /Users/PraSam/Developer/Web/mvc/core/Router.php(114): Core\Controller->__call('addne', Array)
+#1 /Users/PraSam/Developer/Web/mvc/core/Router.php(114): App\Controllers\Posts->addne()
+#2 /Users/PraSam/Developer/Web/mvc/public/index.php(88): Core\Router->dispatch('posts/add-ne')
+#3 {main}
+Thrown in /Users/PraSam/Developer/Web/mvc/Core/Controller.php on line 30
