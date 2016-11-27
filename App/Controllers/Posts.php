@@ -2,6 +2,7 @@
 namespace App\Controllers;
 use \Core\Controller;
 use \Core\View;
+//use App\Models\Posts;
 /**
 * 
 */
@@ -14,7 +15,8 @@ class Posts extends Controller
 	}
 	public function addNewAction()
 	{
-		View::render();
+		$posts = \App\Models\Posts::Get_All();
+		View::render(["posts" => $posts]);
 	}
 	public function editAction()
 	{
