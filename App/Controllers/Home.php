@@ -2,22 +2,25 @@
 namespace App\Controllers;
 use \Core\Controller;
 use \Core\View;
+use App\Models\Posts;
 
 class Home extends Controller
 {
-
+//this method uses a database connection 
 	public function indexAction()
 	{
-		echo "hello from home controller and index method";
-	echo '<p> Query string parameters: <pre>'.
-			htmlspecialchars(print_r($_GET, true)).'</pre></p>';
+		$posts = Posts::Get_All();
+		View::render("Home/index.php",
+			[
+			"posts" => $posts
+			]);	
 	}
 
 	public function aboutAction()
 	{
-		View::render("Home/index.php",
-			['name' => 'prakash',
-			'colours' => ['red','green', 'blue']
-			]);
+		echo "hello from home controller and about method";
+	echo '<p> Query string parameters: <pre>'.
+			htmlspecialchars(print_r($_GET, true)).'</pre></p>';
+
 	}
 }

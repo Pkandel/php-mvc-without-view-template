@@ -18,6 +18,14 @@ spl_autoload_register(function($class)
 	}
 });
 
+/*
+Error and Exception Handling
+*/
+//display every single error
+error_reporting(E_ALL);
+set_error_handler('Core\Error::errorHandler');
+set_exception_handler('Core\Error::exceptionHandler');
+
 $router = new Router();
 //This is cutom router so should be defined first then default
 

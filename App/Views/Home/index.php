@@ -4,11 +4,11 @@
 	<title></title>
 </head>
 <body>
-<h1> <?= htmlspecialchars($name); ?> </h1>
-<?php foreach($colours as $colour) { ?>
+<h1> Using Model </h1>
+<?php foreach ($posts as $post) { ?>
 	<ul>
 		<li>
-			<?= $colour; ?>
+			<?php echo $post->name;  ?>
 		</li>
 	</ul>
 	<?php } ?>

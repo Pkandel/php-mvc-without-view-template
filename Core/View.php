@@ -3,9 +3,12 @@ namespace Core;
 class View
 {
 
-	public static function render($view, $args = [])
+	// public static function render($view, $args = [])
+	// {
+	// 	extract($args, EXTR_SKIP);
+public static function render($view, $modelObject = [])
 	{
-		extract($args, EXTR_SKIP);
+	   extract($modelObject, EXTR_SKIP);
 		$file = "../App/Views/$view"; //relative to core directory
 		if(is_readable($file))
 		{
@@ -13,7 +16,8 @@ class View
 		}
 		else
 		{
-			echo "$file not found";
+			//echo "$file not found";
+			throw new \Exception("$file not found");
 		}
 	}
 }

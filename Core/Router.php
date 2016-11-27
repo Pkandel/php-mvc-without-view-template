@@ -115,17 +115,20 @@ private function print_array($array)
 				}
 				else
 				{
-					echo "Method $action (in controller $controller) not found";
+					//echo "Method $action (in controller $controller) not found";
+					throw new \Exception("Method $action (in controller $controller) not found");
 				}
 			}
 			else
 			{
-				echo "controller class $controller not found";
+				//echo "controller class $controller not found";
+				throw new \Exception("controller class $controller not found");
 			}
 		}
 		else
 		{
-			echo 'No route matched';
+			//echo 'No route matched';
+			throw new \Exception("No route matched");
 		}
 	}
 
@@ -154,15 +157,15 @@ private function print_array($array)
 	{
 		return lcfirst($this->convertToStudyCaps($string));
 	}
-	public function getRoutes()
-	{
-		return $this->routes;
-	}
+	// public function getRoutes()
+	// {
+	// 	return $this->routes;
+	// }
 
-	public function getParams()
-	{
-		return $this->params;
-	}
+	// public function getParams()
+	// {
+	// 	return $this->params;
+	// }
 	public function getNamespace()
 	{
 		$namespace = "app\controllers\\";
