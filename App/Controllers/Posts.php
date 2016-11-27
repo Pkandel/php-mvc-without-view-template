@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 use \Core\Controller;
+use \Core\View;
 /**
 * 
 */
@@ -9,11 +10,11 @@ class Posts extends Controller
 	
 	public function indexAction()
 	{
-		echo "from posts controller and index method";
+		View::render();
 	}
 	public function addNewAction()
 	{
-		echo "from posts controller addNew method";
+		View::render();
 	}
 	public function editAction()
 	{
