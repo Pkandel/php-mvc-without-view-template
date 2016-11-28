@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1> Using Model </h1>
-<?php foreach ($posts as $post) { ?>
+<?php foreach ($model as $post) { ?>
 	<ul>
 		<li>
 			<?php echo $post->name;  ?>

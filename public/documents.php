@@ -27,15 +27,53 @@
 
 				<div class="panel panel-info">
 					<div class="panel-heading">Controller</div>
-					<div class="panel-body">Panel Content</div>
+					<div class="panel-body">
+						<pre>
+1. Have to define namespace.
+2. Controller class should extends Controller from core
+3. To use MVC view should use \Core\View
+4. Method should have suffix as Action like indexAction
+5. We can use render static method from \core\view to access the views
+		It has got four overloadings
+		a. View::render()
+			This will automatically finds the right view for the controller and action.
+		b.View::render("home/index.php")
+			This will render the specific view.
+		c. View::render(Object)
+			This will render the correct view with model object
+		d. View::render("home/index",Object)
+			This will render the specific view with model object
+6. We can get the id and other value from url as
+		echo $_GET['name']; //This is for ?name = "prakash"
+		echo $this->route_params['id']; // This is for id /users/12/edit
+
+						</pre>
+
+					</div>
 				</div>
 				<div class="panel panel-info">
 					<div class="panel-heading">Models</div>
-					<div class="panel-body">Panel Content</div>
+					<div class="panel-body">
+						<pre>
+1. It has to extend \Core\Models and just use the template. This is all for now.
+
+
+						</pre>
+
+
+
+					</div>
 				</div>
 				<div class="panel panel-info">
-					<div class="panel-heading">Views</div>
-					<div class="panel-body">Panel Content</div>
+					<div class="panel-heading">					
+					Views
+					</div>
+					<div class="panel-body">
+						<pre>
+1. View receives the arrray of objects as "model" and have to loop through model and print out the result.
+2.Mvc convention should be follwed to make folder and files.
+					</pre>	
+					</div>
 				</div>
 				<div class="panel panel-info">
 					<div class="panel-heading">Extra</div>

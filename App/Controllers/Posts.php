@@ -2,7 +2,7 @@
 namespace App\Controllers;
 use \Core\Controller;
 use \Core\View;
-//use App\Models\Posts;
+//use \App\Models\Posts;
 /**
 * 
 */
@@ -11,12 +11,12 @@ class Posts extends Controller
 	
 	public function indexAction()
 	{
-		View::render();
+		View::render("post/index.php");
 	}
 	public function addNewAction()
 	{
 		$posts = \App\Models\Posts::Get_All();
-		View::render(["posts" => $posts]);
+		View::render($posts);
 	}
 	public function editAction()
 	{

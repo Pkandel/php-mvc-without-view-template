@@ -21,6 +21,7 @@ class Error
 
 	public static function exceptionHandler($exception)
 	{
+		//if show errors is on it will show the error
 		if (\App\Config::SHOW_ERRORS)
 		{
 			echo "<h1>Fatal error</h1>";
@@ -30,6 +31,7 @@ class Error
 			echo "<p>Thrown in ". $exception->getFile() . " on line ". $exception->getLine(). "</p>";
 
 		}
+		//if show error is false it will show the normal error page and save the record to the log folder in a file
 		else
 		{
 			$log = dirname(__DIR__).'/logs/' .date('Y-m-d'). '.txt';

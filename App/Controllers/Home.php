@@ -9,11 +9,9 @@ class Home extends Controller
 //this method uses a database connection 
 	public function indexAction()
 	{
-		$posts = Posts::Get_All();
-		View::render("Home/index.php",
-			[
-			"posts" => $posts
-			]);	
+		 $posts = Posts::Get_All();
+		View::render("home/index.php",$posts);	
+
 	}
 
 	public function aboutAction()
