@@ -46,6 +46,15 @@
 6. We can get the id and other value from url as
 		echo $_GET['name']; //This is for ?name = "prakash"
 		echo $this->route_params['id']; // This is for id /users/12/edit
+7. We can define method to execute before and after the controller action method executes
+	To do so 
+	we have to override the before and after method of parent controller by
+		protected function before()
+	{
+		//do some check if not valid return false
+		//do some check if valid return true
+		//same applies to after method
+	}
 
 						</pre>
 

@@ -11,14 +11,9 @@ class Home extends Controller
 	 {
 	// 	$posts = Posts::Get_All();
 	// 	View::render("home/index.php",$posts);	
-	 	$posts = Posts::Get_All();
-		View::renderTemplate();	
+	 	$posts = Posts::Get_All();	
+		View::renderTemplate($posts);
 	 	
 	}
 
-	public function aboutAction()
-	{
-		View::render();
-
-	}
 }
