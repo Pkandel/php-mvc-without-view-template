@@ -48,8 +48,7 @@ class View
       	{
       	//if is a  controller and action 
       		//need to check if method exits as well
-      		$array = explode('/',$array[0]);
-      		if (class_exists("\App\Controllers\\$array[0]\\$array[1]"))
+      		if (class_exists("\App\Controllers\\$array[0]"))
       		{
       			header('Location: /'.$array[0].'/'.$array[1]);
       		}
@@ -216,8 +215,7 @@ public static function renderTemplate()
       		{
 	      		//if is a  controller and action 
 	      		//need to check if method exits as well
-	      		$array = explode('/',$array[0]);
-	      		if (class_exists("\App\Controllers\\$array[0]\\$array[1]"))
+	      		if (class_exists("\App\Controllers\\$array[0]"))
 	      		{
 	      			header('Location: /'.$array[0].'/'.$array[1]);
 	      		}

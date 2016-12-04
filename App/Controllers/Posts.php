@@ -11,7 +11,7 @@ class Posts extends Controller
 	
 	public function indexAction()
 	{
-		View::renderTemplate("admin/users/index");
+		View::render("home/index");
 	}
 
 }
