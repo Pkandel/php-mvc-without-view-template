@@ -9,7 +9,11 @@ class View
 		//only passing the view file
 		if(func_num_args() == 1)
 		{	
-			$count_slashes = substr_count(func_get_arg(0),'/');
+			
+// if only filepath or controller/action is defined
+			if(!is_array(func_get_arg(0)))
+			{
+				$count_slashes = substr_count(func_get_arg(0),'/');
 				$array = [];
 				if($count_slashes == 1){
 					// controller/action
@@ -23,9 +27,6 @@ class View
 					$array = array(implode('/', $array), $last);
 
 				}
-// if only filepath or controller/action is defined
-			if(!is_array(func_get_arg(0)))
-			{
 				//if filepath is given [not recommended in mvc]
 				if(strpos(end($array), ".php") !== false)
 				{
@@ -60,6 +61,7 @@ class View
       	}
 
       }
+      //if one argument is passed and is array of object
       else
       {
       	$modelObject = [];
@@ -185,8 +187,49 @@ public static function renderTemplate()
 		{	
 			if(!is_array(func_get_arg(0)))
 			{
+
+				$count_slashes = substr_count(func_get_arg(0),'/');
+				$array = [];
+				if($count_slashes == 1){
+					// controller/action
+				$array = explode('/',func_get_arg(0));
+				}
+				else
+				{
+					// admin/controller/action
+					$array = explode('/', func_get_arg(0));
+					$last = array_pop($array);
+					$array = array(implode('/', $array), $last);
+
+				}
+
+
+				//if filepath is given [not recommended in mvc]
+			if(strpos(end($array), ".php") !== false)
+			{
+				//if it is a physical file
 				$view = func_get_arg(0);
 	      		echo $twig->render($view);
+
+      		}
+      		else
+      		{
+	      		//if is a  controller and action 
+	      		//need to check if method exits as well
+	      		$array = explode('/',$array[0]);
+	      		if (class_exists("\App\Controllers\\$array[0]\\$array[1]"))
+	      		{
+	      			header('Location: /'.$array[0].'/'.$array[1]);
+	      		}
+	      		else
+	      		{
+	      			throw new \Exception("$array[1] class not found");
+	      			
+	      		}
+
+      		}
+
+	
       		}
       		else
       		{
