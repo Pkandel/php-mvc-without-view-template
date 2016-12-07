@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 use \Core\Controller;
-use \Core\View;
+use \Core\Template;
 //use \App\Models\Posts;
 /**
 * 
@@ -11,11 +11,11 @@ class PostController extends Controller
 	
 	public function indexAction()
 	{
-		// $content = json_decode($_GET['data']);
-		// View::render($content);
+		//Template::render();
+
 		session_start();
 		$posts = $_SESSION["data"];
-		View::render($posts);
+		Template::RedirectToFile("home/index.html",$posts);
 	}
 
 }

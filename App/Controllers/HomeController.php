@@ -1,7 +1,8 @@
 <?php
 namespace App\Controllers;
 use \Core\Controller;
-use \Core\View;
+//use \Core\View;
+use \Core\Template;
 use \App\Models\Posts;
 
 class HomeController extends Controller
@@ -10,20 +11,20 @@ class HomeController extends Controller
 	public function indexAction()
 	 {		
 	 	
-		// View::render();	
+		 //Template::Render();	
 
-	 	// $posts = Posts::Get_All();
-		// View::render($posts);
+	 // 	$posts = Posts::Get_All();
+		// Template::render($posts);
 
-		 //View::RedirectToFile("home/index.php");	
+		 //Template::RedirectToFile("post/index.html");	
 
 		// $posts = Posts::Get_All();
-		// View::RedirectToFile("post/index.php",$posts);	
+		// Template::RedirectToFile("home/index.html",$posts);	
 
-		 //View::RedirectToAction("post/index");
+		 //Template::RedirectToAction("post/index");
 
 		 $posts = Posts::Get_All();
-		View::RedirectToAction("Post/index",$posts);	
+		Template::RedirectToAction("post/index",$posts);	
 	 	
 	}
 
