@@ -5,12 +5,12 @@
 </head>
 <body>
 <h1> Using Model </h1>
-<?php foreach ($model as $post) { ?>
+<?php //foreach ($model as $post) { ?> 
 	<ul>
 		<li>
-			<?php echo $post->name;  ?>
+			<?php //echo $post->name;  ?>
 		</li>
 	</ul>
-	<?php } ?>
+	<?php //} ?>  
 </body>
 </html>

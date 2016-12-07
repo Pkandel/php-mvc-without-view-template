@@ -100,7 +100,7 @@ private function print_array($array)
 		{
 			$controller = $this->params['controller'];
 			$controller = $this->convertToStudyCaps($controller);
-			$controller = $this->getNamespace().$controller;
+			$controller = $this->getNamespace().$controller."Controller";
 			
 
 			if(class_exists($controller))
