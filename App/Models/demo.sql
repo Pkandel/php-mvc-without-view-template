@@ -1,19 +1,16 @@
-CREATE DATABASE mvc;
+CREATE DATABASE ecommerce;
 
-USE mvc;
+USE ecommerce;
 
-	CREATE TABLE posts 
+	CREATE TABLE users 
 	(
-		id int PRIMARY KEY AUTO_INCREMENT,
-		name VARCHAR(50),
-		description VARCHAR(5000)
+		username VARCHAR(50) PRIMARY KEY,
+		email VARCHAR(50),
+		pass VARCHAR(256),
+		phone VARCHAR(15),
+		address VARCHAR(300)
 	)
-INSERT INTO posts (name, description) VALUES 
-	("first post", "description for firs post"),
-	("second post", "description for second post"),
-	("third post", "description for third post"),
-	("fourth post", "description for fourth post"),
-	("fifth post", "description for fifth post"),
-	("sixth post", "description for sixth post"),
-	("seventh post", "description for seventh post");
+INSERT INTO users (username, email, pass, phone,address) VALUES 
+("prasam","unique_prakash2002@yahoo.com","123","0415174274","7/129 Epsom Road Ascot Vale, VIC 3032"),
+("prasam","unique_prakash2002@yahoo.com","123","0415174274","7/129 Epsom Road Ascot Vale, VIC 3032");
 	

@@ -33,7 +33,7 @@ class View
 				//this will give calling method like indexAction
       			$callingMethod =  debug_backtrace()[1]['function'];
 					//removing Action from calling method
-      			$method = rtrim($callingMethod, "Action");
+      			$method = substr($callingMethod,0,-6);
 
 					$file = "../App/Views/".$controller."/".$method.".php"; //relative to core directory
 					if(is_readable($file))
@@ -72,7 +72,7 @@ class View
 					//this will give calling method like indexAction
 					$callingMethod =  debug_backtrace()[1]['function'];
 					//removing Action from calling method
-					$method = rtrim($callingMethod, "Action");
+					$method = substr($callingMethod,0,-6);
 
 					$file = "../App/Views/".$controller."/".$method.".php"; //relative to core directory
 					if(is_readable($file))
@@ -145,15 +145,22 @@ class View
 			// admin/controller/action
 			$array = explode('/', func_get_arg(0));
 			$last = array_pop($array);
-			$array = array(implode('/', $array), $last);
+			$array = array(implode('\\', $array), $last);		
 		}
+
 		$controller_class = $array[0]."Controller";
+
 		if(func_num_args() == 1)
 		{
 		
 			if (class_exists("\App\Controllers\\".$controller_class))
 	      	{
-	      		header('Location: /'.$array[0].'/'.$array[1]);
+	      		//echo '<script>window.location.replace("/'.$array[0].'/'.$array[1].'");</script>';
+	      		if(strpos($array[0],"\\") !== false)
+	      		{
+	      			$array[0] = str_replace("\\", "/", $array[0]);
+	      		}
+	      		echo '<script>window.location.replace("/'.$array[0].'/'.$array[1].'");</script>';
 
 	      	}
 	      	else
@@ -171,7 +178,7 @@ class View
       			$_SESSION["data"] = $view;
 
       			//header('Location: /'.$array[0].'/'.$array[1].'?data='.json_encode($view));
-      			header('Location: /'.$array[0].'/'.$array[1]);
+      			echo '<script>window.location.replace("/'.$array[0].'/'.$array[1].'");</script>';
 
       		}
       		else

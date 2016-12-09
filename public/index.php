@@ -44,7 +44,7 @@ this is default for admin /admin lead to admin/users/index
  	'Admin',
  	[
  	'namespace' => 'Admin', 
- 	'controller' => 'users',
+ 	'controller' => 'user',
  	'action' => 'index'
  	]);
  //this is for admin/users
@@ -76,6 +76,15 @@ $router->add(
  	'controller' => 'home',
  	'action' => 'index'
  	]);
+ $router->add(
+ 	'user',
+ 	[
+ 	'controller' => 'user',
+ 	'action' => 'login'
+ 	]);
+
+
+
  /* if controller is there and action is not defined it loads index action method*/
  $router->add(
  	'{controller}',

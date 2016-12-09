@@ -2,13 +2,14 @@
 namespace Core;
 class Template
 {
-public static function render()
+public static function Render()
 	{
 		static $twig = null;
 		if($twig === null)
 		{
 			$loader = new \Twig_Loader_Filesystem('../App/Views');
 			$twig = new \Twig_Environment($loader);
+			$twig->addGlobal('session', $_SESSION);
 		}
 
 		//only passing one argument
@@ -35,7 +36,7 @@ public static function render()
 					//this will give calling method like indexAction
 	      			$callingMethod =  debug_backtrace()[1]['function'];
 					//removing Action from calling method
-	      			$method = rtrim($callingMethod, "Action");
+	      			$method = substr($callingMethod,0,-6);
 
 					$view = $controller."/".$method.".html"; //relative to core directory
 					echo $twig->render($view, $newmodel);
@@ -66,7 +67,7 @@ public static function render()
 					//this will give calling method like indexAction
 					$callingMethod =  debug_backtrace()[1]['function'];
 					//removing Action from calling method
-					$method = rtrim($callingMethod, "Action");
+					$method = substr($callingMethod,0,-6);
 
 					$view = $controller."/".$method.".html"; 
 					echo $twig->render($view);
@@ -84,6 +85,7 @@ public static function render()
 		{
 			$loader = new \Twig_Loader_Filesystem('../App/Views');
 			$twig = new \Twig_Environment($loader);
+			//$twig->addGlobal('session', $_SESSION);
 		}
 
 		if(func_num_args() == 1)
