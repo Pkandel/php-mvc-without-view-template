@@ -1,2 +1,3 @@
 <?php
-echo "from admin index method";
+$body = 'from admin and index method';
+include_once('../App/Views/Layout.php');

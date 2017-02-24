@@ -8,12 +8,6 @@ This is a front controller and every http requests comes first here
 * call dispatch function which will look for controller and run corresponding action method
 */
 
-/*This is for twig template engine */
-require_once dirname(__DIR__) . '/vendor/Twig/lib/Twig/Autoloader.php';
-Twig_Autoloader::register();
-
-/*This is for twig template engine */
-
 
 /* autoloader  */
 spl_autoload_register(function($class)
@@ -73,7 +67,7 @@ $router->add(
  $router->add(
  	'',
  	[
- 	'controller' => 'home',
+ 	'controller' => 'post',
  	'action' => 'index'
  	]);
  $router->add(
